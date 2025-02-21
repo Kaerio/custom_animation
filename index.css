@@ -4,38 +4,22 @@
     box-sizing: border-box;
 }
 
-header {
-    /* background-color: red; */
-    height: 700px;
+body {
     display: flex;
+    background-color: black;
+    height: 100vh;
 }
 
 .div-container {
-    /* background-color: aqua; */
-    height: 700px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .divToFade {
-    background-color: orange;
+    background: hsl(0, 0%, 90%);
+    ;
     width: 100%;
     height: 100%;
-    /* display: inline-block; */
 }
-
-/* .disappear {
-    background-color: aqua;
-    height: 400px;
-    display: inline-block;
-    animation: reduce 0.7s ease-in 0s 1 normal forwards;
-}
-
-@keyframes reduce {
-    to {
-        height: 0;
-        width: 0;
-        opacity: 0
-    }
-} */
