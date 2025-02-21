@@ -1,13 +1,11 @@
-const header = document.querySelector("header");
+const body = document.body;
 
 //animation settings (you can modify them)
-const divWidth = Math.min(25, header.offsetWidth / 15)
-//console.log(divWidth)
-console.log(header.offsetWidth)
-const animationDuration = header.offsetWidth < 800 ? 600 : 800
-const numOfDivs = Math.ceil(header.offsetWidth / divWidth) // can be assigned manually with a number
+const divWidth = body.offsetWidth / (body.offsetWidth / 6)
+const animationDuration = body.offsetWidth < 800 ? 400 : 700
+const numOfDivs = Math.ceil(body.offsetWidth / divWidth) // can be assigned manually with a number
 const timeout = animationDuration / numOfDivs //interval between each div starting fading, can be assigned manually with a number
-const individualDivFadingDuration = 120
+const individualDivFadingDuration = 600
 
 //Divs creation
 for (let i = 0; i < numOfDivs; i++) {
@@ -20,9 +18,10 @@ for (let i = 0; i < numOfDivs; i++) {
     divToFade.id = `divToFade-${i}`
 
     div.appendChild(divToFade)
-    header.appendChild(div)
+    body.appendChild(div)
 }
 
+//Creating random numbers array
 let numbers = []
 for (let i = 0; i < numOfDivs; i++) {
     let random = Math.floor(Math.random() * numOfDivs)
@@ -32,20 +31,20 @@ for (let i = 0; i < numOfDivs; i++) {
     while (numbers.includes(random))
     numbers.push(random)
 }
-console.log(numbers)
 
-//animation definitions
+//animation definition and options
 const reducing = [
     {
-        height: 0,
+        height: 0
     }
-];
+]
 
 const options = {
     // keyframe options
     duration: individualDivFadingDuration,
     direction: "normal",
-    easing: "cubic-bezier(.59,.14,.3,1.0)",
+    //easing: "cubic-bezier(.59,.14,.3,1.0)",
+    easing: "ease-in-out",
     fill: "forwards",
     iterations: 1,
 }
