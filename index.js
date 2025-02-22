@@ -2,10 +2,10 @@ const body = document.body;
 
 //animation settings (you can modify them)
 const divWidth = body.offsetWidth / (body.offsetWidth / 6)
-const animationDuration = body.offsetWidth < 800 ? 400 : 700
+const animationDuration = body.offsetWidth < 800 ? 600 : 700
 const numOfDivs = Math.ceil(body.offsetWidth / divWidth) // can be assigned manually with a number
 const timeout = animationDuration / numOfDivs //interval between each div starting fading, can be assigned manually with a number
-const individualDivFadingDuration = 600
+const individualDivFadingDuration = body.offsetWidth < 800 ? 600 : 700
 
 //Divs creation
 for (let i = 0; i < numOfDivs; i++) {
@@ -44,7 +44,7 @@ const options = {
     duration: individualDivFadingDuration,
     direction: "normal",
     //easing: "cubic-bezier(.59,.14,.3,1.0)",
-    easing: "ease-in-out",
+    easing: "ease",
     fill: "forwards",
     iterations: 1,
 }
