@@ -64,18 +64,22 @@ body {
   }
 }
 
-#loading-text {
+/* #loading-text {
+  color: transparent;
+  text-shadow: 1px 1px 1px #068e9da3;
+  opacity: 0.05;
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: "Audiowide", serif;
-  font-size: clamp(16px, 1.5vw, 25px);
-  /* text-shadow: 2px 2px 5px #068d9d; */
+  font-size: clamp(6px, 0.2vw, 10px);
+  text-shadow: 2px 2px 5px #068d9d;
   opacity: 0.7;
   animation: changeOpacity 1.5s linear 0s infinite alternate both;
-}
+} */
 
 @keyframes changeOpacity {
   0% {

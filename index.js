@@ -60,22 +60,28 @@ setTimeout(() => {
       divToFade.animate(reducing, options);
     }, i * timeout);
   });
-}, 100);
+});
 
 let initialWidth = loaderContainer.offsetWidth;
+// let fontSize = parseFloat(
+//   window.getComputedStyle(document.getElementById("loading-text")).fontSize
+// );
+// console.log("font: " + fontSize);
 let counter = initialWidth;
 console.log("counter: " + counter);
 let opacity = 1;
 const animationInterval = setInterval(() => {
   counter += initialWidth * 0.025;
+  //   fontSize *= 1.01;
   //   console.log(counter);
 
   loaderContainer.style.width = `${counter}px`;
+  //   document.getElementById("loading-text").style.fontSize = `${fontSize}px`;
+
   if (counter > initialWidth * 5) {
-    opacity -= 0.07;
+    opacity -= 0.09;
     counter *= 1.25;
     animationContainer.style.opacity = opacity;
-    // document.body.style.opacity = opacity * -1;
   }
 
   if (opacity <= 0) {
