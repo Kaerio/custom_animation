@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 
-body {
+#loading-animation {
   display: flex;
   background-color: #090b0d;
   height: 100vh;
+  width: 100%;
 }
 
 .div-container {
@@ -19,7 +20,6 @@ body {
 
 .div-to-fade {
   background: #068d9d;
-  /* background: linear-gradient(to bottom, transparent, #068d9d); */
   background: radial-gradient(circle at center, #068d9d 0, transparent 100%);
   width: 100%;
   height: 100%;
@@ -30,36 +30,35 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
+  width: 75%;
   max-width: 600px;
   min-width: 250px;
   height: auto;
   aspect-ratio: 1/1;
-  background: radial-gradient(black 40%, transparent 70%);
+  background: radial-gradient(black 40%, #068d9d 55%, transparent 59%);
   z-index: 1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
-  /* filter: blur(1px); */
-  /* animation: changeContainerOpacity 0.5s linear 0s infinite alternate both; */
+  opacity: 0.99;
+  animation: changeContainerOpacity 0.0017s linear 1.8s infinite alternate both;
 }
 
-/* @keyframes changeContainerOpacity {
+@keyframes changeContainerOpacity {
   0% {
-    opacity: 0.957;
+    background: radial-gradient(black 40%, #068d9d 55%, transparent 56%);
   }
   33% {
-    opacity: 0.98;
+    background: radial-gradient(black 40%, #068d9d 55%, transparent 57%);
   }
   66% {
-    opacity: 0.99;
+    background: radial-gradient(black 40%, #068d9d 55%, transparent 58%);
   }
   100% {
-    opacity: 1;
+    background: radial-gradient(black 40%, #068d9d 55%, transparent 59%);
   }
-} */
+}
 
 #loading-text {
   position: absolute;
@@ -68,7 +67,7 @@ body {
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: "Audiowide", serif;
-  font-size: clamp(16px, 1vw, 30px);
+  font-size: clamp(16px, 1.5vw, 25px);
   /* text-shadow: 2px 2px 5px #068d9d; */
   opacity: 0.7;
   animation: changeOpacity 1.5s linear 0s infinite alternate both;
@@ -91,6 +90,10 @@ body {
   }
 }
 
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+/* this free loader spinner comes from https://github.com/vineethtrv/css-loader?tab=MIT-1-ov-file#readme */
 .loader {
   margin-top: 22%;
   transform: rotateZ(45deg);
@@ -164,3 +167,6 @@ body {
     box-shadow: 0.2em -0.2em 0 0 currentcolor;
   }
 }
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */

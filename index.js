@@ -1,11 +1,13 @@
-const body = document.body;
+const animationContainer = document.getElementById("loading-animation");
+console.log(animationContainer);
+// animationContainer.style.width = window.innerWidth;
 
 //réglages animation
-const divWidth = body.offsetWidth < 500 ? 3 : 6;
-const animationDuration = body.offsetWidth < 800 ? 600 : 700;
-const numOfDivs = Math.ceil(body.offsetWidth / divWidth);
+const divWidth = document.body.offsetWidth < 500 ? 5 : 6;
+const animationDuration = document.body.offsetWidth < 500 ? 800 : 900;
+const numOfDivs = Math.ceil(document.body.offsetWidth / divWidth);
 const timeout = animationDuration / numOfDivs; //interval entre chaque démarrage de div
-const individualDivFadingDuration = body.offsetWidth < 800 ? 600 : 700; //plus rapide sur petit écran
+const individualDivFadingDuration = document.body.offsetWidth < 500 ? 800 : 900; //plus rapide sur petit écran
 
 console.log("numOfDivs: " + numOfDivs);
 
@@ -20,7 +22,7 @@ for (let i = 0; i < numOfDivs; i++) {
   divToFade.id = `div-to-fade-${i}`;
 
   divContainer.appendChild(divToFade);
-  body.appendChild(divContainer);
+  animationContainer.appendChild(divContainer);
 }
 
 //Creation array de nombre aléatoires uniques
@@ -37,16 +39,15 @@ console.log(numbers);
 //définition de l'animation
 const reducing = [
   {
-    height: 0,
+    height: "0",
   },
 ];
 
 //définition des options de l'animation
 const options = {
-  // keyframe options
   duration: individualDivFadingDuration,
   direction: "alternate",
-  //easing: "cubic-bezier(.59,.14,.3,1.0)",
+  //   easing: "cubic-bezier(.59,.14,.3,1.0)",
   easing: "ease",
   fill: "forwards",
   iterations: Infinity,
@@ -58,6 +59,5 @@ setTimeout(() => {
       const divToFade = document.querySelector(`#div-to-fade-${number}`);
       divToFade.animate(reducing, options);
     }, i * timeout);
-    console.log(numOfDivs, timeout);
   });
-});
+}, 100);
