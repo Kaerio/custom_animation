@@ -67,14 +67,15 @@ let counter = initialWidth;
 console.log("counter: " + counter);
 let opacity = 1;
 const animationInterval = setInterval(() => {
-  counter += initialWidth * 0.004;
-  console.log(counter);
+  counter += initialWidth * 0.025;
+  //   console.log(counter);
 
   loaderContainer.style.width = `${counter}px`;
-  if (counter > initialWidth * 1.7) {
+  if (counter > initialWidth * 5) {
     opacity -= 0.07;
-    counter *= 1.15;
+    counter *= 1.25;
     animationContainer.style.opacity = opacity;
+    // document.body.style.opacity = opacity * -1;
   }
 
   if (opacity <= 0) {
