@@ -1,62 +1,63 @@
 const body = document.body;
 
-//animation settings (you can modify them)
-const divWidth = body.offsetWidth / (body.offsetWidth / 6)
-const animationDuration = body.offsetWidth < 800 ? 600 : 700
-const numOfDivs = Math.ceil(body.offsetWidth / divWidth) // can be assigned manually with a number
-const timeout = animationDuration / numOfDivs //interval between each div starting fading, can be assigned manually with a number
-const individualDivFadingDuration = body.offsetWidth < 800 ? 600 : 700
+//réglages animation
+const divWidth = body.offsetWidth < 500 ? 3 : 6;
+const animationDuration = body.offsetWidth < 800 ? 600 : 700;
+const numOfDivs = Math.ceil(body.offsetWidth / divWidth);
+const timeout = animationDuration / numOfDivs; //interval entre chaque démarrage de div
+const individualDivFadingDuration = body.offsetWidth < 800 ? 600 : 700; //plus rapide sur petit écran
 
-//Divs creation
+console.log("numOfDivs: " + numOfDivs);
+
+// Création des divs
 for (let i = 0; i < numOfDivs; i++) {
-    const div = document.createElement("div")
-    div.className = "div-container"
-    div.style.width = `${divWidth}px`
+  const divContainer = document.createElement("div");
+  divContainer.className = "div-container";
+  divContainer.style.width = `${divWidth}px`;
 
-    const divToFade = document.createElement("div")
-    divToFade.className = "divToFade"
-    divToFade.id = `divToFade-${i}`
+  const divToFade = document.createElement("div");
+  divToFade.className = "div-to-fade";
+  divToFade.id = `div-to-fade-${i}`;
 
-    div.appendChild(divToFade)
-    body.appendChild(div)
+  divContainer.appendChild(divToFade);
+  body.appendChild(divContainer);
 }
 
-//Creating random numbers array
-let numbers = []
+//Creation array de nombre aléatoires uniques
+let numbers = [];
 for (let i = 0; i < numOfDivs; i++) {
-    let random = Math.floor(Math.random() * numOfDivs)
-    do {
-        random = Math.floor(Math.random() * numOfDivs)
-    }
-    while (numbers.includes(random))
-    numbers.push(random)
+  let random;
+  do {
+    random = Math.floor(Math.random() * numOfDivs);
+  } while (numbers.includes(random));
+  numbers.push(random);
 }
+console.log(numbers);
 
-//animation definition and options
+//définition de l'animation
 const reducing = [
-    {
-        height: 0
-    }
-]
+  {
+    height: 0,
+  },
+];
 
+//définition des options de l'animation
 const options = {
-    // keyframe options
-    duration: individualDivFadingDuration,
-    direction: "normal",
-    //easing: "cubic-bezier(.59,.14,.3,1.0)",
-    easing: "ease",
-    fill: "forwards",
-    iterations: 1,
-}
+  // keyframe options
+  duration: individualDivFadingDuration,
+  direction: "alternate",
+  //easing: "cubic-bezier(.59,.14,.3,1.0)",
+  easing: "ease",
+  fill: "forwards",
+  iterations: Infinity,
+};
 
-//starting animation 
 setTimeout(() => {
-    numbers.forEach((number, i) => {
-        setTimeout(() => {
-            const div = document.querySelector(`#divToFade-${number}`);
-            div.animate(reducing, options);
-        }, i * timeout)
-        console.log(numOfDivs, timeout)
-    })
-}, 500)
-
+  numbers.forEach((number, i) => {
+    setTimeout(() => {
+      const divToFade = document.querySelector(`#div-to-fade-${number}`);
+      divToFade.animate(reducing, options);
+    }, i * timeout);
+    console.log(numOfDivs, timeout);
+  });
+});
