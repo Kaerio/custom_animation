@@ -1,5 +1,5 @@
 const animationContainer = document.getElementById("loading-animation");
-console.log(animationContainer);
+const loaderContainer = document.getElementById("loader-container");
 // animationContainer.style.width = window.innerWidth;
 
 //réglages animation
@@ -61,3 +61,26 @@ setTimeout(() => {
     }, i * timeout);
   });
 }, 100);
+
+let initialWidth = loaderContainer.offsetWidth;
+let counter = initialWidth;
+console.log("counter: " + counter);
+let opacity = 1;
+const animationInterval = setInterval(() => {
+  counter += initialWidth * 0.004;
+  console.log(counter);
+
+  loaderContainer.style.width = `${counter}px`;
+  if (counter > initialWidth * 1.7) {
+    opacity -= 0.07;
+    counter *= 1.15;
+    animationContainer.style.opacity = opacity;
+  }
+
+  if (opacity <= 0) {
+    animationContainer.style.display = "none";
+    clearInterval(animationInterval);
+  }
+}, 16);
+
+// loaderContainer.style.width = `${counter}%`;
