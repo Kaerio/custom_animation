@@ -17,12 +17,13 @@
 
 body {
   background: #0c0c0c;
+  height: 100vh;
 }
 
 #loading-animation {
   display: none;
   background-color: #0c0c0c;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 

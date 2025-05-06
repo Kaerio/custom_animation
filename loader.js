@@ -2,7 +2,7 @@ function startLoadingAnimation() {
   const animationContainer = document.getElementById("loading-animation");
   const loaderContainer = document.getElementById("loader-container");
   animationContainer.style.display = "flex";
-  animationContainer.style.width = window.innerWidth;
+  // animationContainer.style.width = window.innerWidth;
 
   //réglages animation
   const divWidth = document.body.offsetWidth < 500 ? 5 : 6; //plus petites sur petit écran
@@ -14,7 +14,7 @@ function startLoadingAnimation() {
 
   function setVhUnit() {
     const vh = window.innerHeight * 0.01;
-    animationContainer.style.setProperty("--vh", `${vh}px`);
+    document.body.style.setProperty("--vh", `${vh}px`);
   }
 
   window.addEventListener("resize", setVhUnit);
