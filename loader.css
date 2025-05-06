@@ -46,7 +46,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: clamp(30px, 4%, 70px);
-  /* min-width: 200px; */
   height: auto;
   aspect-ratio: 1/1;
   background: radial-gradient(black 40%, #068d9d 55%, transparent 59%);
@@ -56,7 +55,6 @@ body {
   justify-content: center;
   align-items: center;
   opacity: 0.99;
-  /* animation: changeContainerOpacity 0.0034s linear 1.8s infinite alternate both; */
 }
 
 @keyframes changeContainerOpacity {
@@ -73,23 +71,6 @@ body {
     background: radial-gradient(black 40%, #068d9d 55%, transparent 59%);
   }
 }
-
-/* #loading-text {
-  color: transparent;
-  text-shadow: 1px 1px 1px #068e9da3;
-  opacity: 0.05;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-family: "Audiowide", serif;
-  font-size: clamp(6px, 0.2vw, 10px);
-  text-shadow: 2px 2px 5px #068d9d;
-  opacity: 0.7;
-  animation: changeOpacity 1.5s linear 0s infinite alternate both;
-} */
 
 @keyframes changeOpacity {
   0% {
@@ -108,10 +89,147 @@ body {
   }
 }
 
+.loader-gradients-container {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform: translate(25%, 80%);
+  top: 0;
+  left: 0;
+}
+
+.grad1 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 0.8) 3%,
+      rgba(var(--color1), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--size);
+  height: var(--size);
+  top: calc(20% - var(--size) / 2);
+  left: 50%;
+  transform-origin: center center;
+  opacity: 1;
+  animation: var(--animation);
+}
+
+.grad2 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 0.8) 3%,
+      rgba(var(--color2), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--size);
+  height: var(--size);
+  top: calc(18% - var(--size) / 2);
+  left: 50%;
+  transform-origin: calc(50% - 25%);
+  opacity: 1;
+  animation: var(--animation);
+}
+
+.grad3 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 0.8) 3%,
+      rgba(var(--color3), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--size);
+  height: var(--size);
+  top: calc(20% - var(--size) / 2 + 7%);
+  left: 60%;
+  transform-origin: calc(50% + 25%);
+  opacity: 1;
+  animation: var(--animation);
+}
+
+.grad4 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 0.8) 3%,
+      rgba(var(--color4), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--size);
+  height: var(--size);
+  top: calc(25% - var(--size) / 2);
+  left: 75%;
+  transform-origin: calc(50% - 15%);
+  opacity: 0.8;
+  animation: var(--animation);
+}
+
+.grad5 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 0.8) 4%,
+      rgba(var(--color5), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--size) * 1.2);
+  height: calc(var(--size) * 1.2);
+  top: calc(15% - var(--size));
+  left: 60%;
+  transform-origin: calc(50% - 20%) calc(50% + 15%);
+  opacity: 1;
+  animation: var(--animation);
+}
+
+.grad6 {
+  --size: 20%;
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color6), 0.8) 4%,
+      rgba(var(--color6), 0) 20%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--size) * 1.3);
+  height: calc(var(--size) * 1.3);
+  top: calc(15% - var(--size));
+  left: 70%;
+  transform-origin: calc(50% - 35%) calc(50% + 5%);
+  opacity: 1;
+  animation: var(--animation);
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
-/* this free loader spinner comes from https://github.com/vineethtrv/css-loader?tab=MIT-1-ov-file#readme */
+/* this free little loader spinner comes from https://github.com/vineethtrv/css-loader?tab=MIT-1-ov-file#readme */
 .loader {
   margin-top: 22%;
   transform: rotateZ(45deg);
@@ -188,155 +306,3 @@ body {
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
-
-.loader-gradients-container {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  transform: translate(25%, 80%);
-  top: 0;
-  left: 0;
-  /* transform: rotateZ(-90deg); */
-  /* z-index: -1; */
-  /* background-color: #ef476f; */
-}
-
-.grad1 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color1), 0.8) 3%,
-      rgba(var(--color1), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-  width: var(--size);
-  height: var(--size);
-  top: calc(20% - var(--size) / 2);
-  left: 50%;
-  transform-origin: center center;
-  opacity: 1;
-  animation: var(--animation);
-}
-
-.grad2 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color2), 0.8) 3%,
-      rgba(var(--color2), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-  width: var(--size);
-  height: var(--size);
-  top: calc(18% - var(--size) / 2);
-  left: 50%;
-  transform-origin: calc(50% - 25%);
-  opacity: 1;
-  animation: var(--animation);
-}
-
-.grad3 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color3), 0.8) 3%,
-      rgba(var(--color3), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-
-  width: var(--size);
-  height: var(--size);
-  top: calc(20% - var(--size) / 2 + 7%);
-  left: 60%;
-
-  transform-origin: calc(50% + 25%);
-
-  opacity: 1;
-  animation: var(--animation);
-}
-
-.grad4 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color4), 0.8) 3%,
-      rgba(var(--color4), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-
-  width: var(--size);
-  height: var(--size);
-  top: calc(25% - var(--size) / 2);
-  left: 75%;
-
-  transform-origin: calc(50% - 15%);
-
-  opacity: 0.8;
-  animation: var(--animation);
-}
-
-.grad5 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color5), 0.8) 4%,
-      rgba(var(--color5), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-
-  width: calc(var(--size) * 1.2);
-  height: calc(var(--size) * 1.2);
-  top: calc(15% - var(--size));
-  left: 60%;
-
-  transform-origin: calc(50% - 20%) calc(50% + 15%);
-
-  opacity: 1;
-  animation: var(--animation);
-}
-
-.grad6 {
-  --size: 20%;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color6), 0.8) 4%,
-      rgba(var(--color6), 0) 20%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-
-  width: calc(var(--size) * 1.3);
-  height: calc(var(--size) * 1.3);
-  top: calc(15% - var(--size));
-  left: 70%;
-
-  transform-origin: calc(50% - 35%) calc(50% + 5%);
-
-  opacity: 1;
-  animation: var(--animation);
-}
-
-@keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
