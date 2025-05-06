@@ -5,8 +5,8 @@ function startLoadingAnimation() {
   animationContainer.style.width = window.innerWidth;
 
   //réglages animation
-  const divWidth = document.body.offsetWidth < 500 ? 5 : 6;
-  const animationDuration = document.body.offsetWidth < 500 ? 800 : 900;
+  const divWidth = document.body.offsetWidth < 500 ? 5 : 6; //plus petites sur petit écran
+  const animationDuration = document.body.offsetWidth < 500 ? 800 : 900; //plus rapide sur petit écran
   const numOfDivs = Math.ceil(document.body.offsetWidth / divWidth);
   const timeout = animationDuration / numOfDivs; //interval entre chaque démarrage de div
   const individualDivFadingDuration =
@@ -71,7 +71,7 @@ function startLoadingAnimation() {
     counter += initialWidth * 0.025;
     loaderContainer.style.width = `${counter}px`;
 
-    if (counter > initialWidth * 5) {
+    if (counter > initialWidth * 6) {
       opacity -= 0.1;
       counter *= 1.25;
       animationContainer.style.opacity = opacity;
