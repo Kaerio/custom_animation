@@ -12,13 +12,13 @@ function startLoadingAnimation() {
   const individualDivFadingDuration =
     document.body.offsetWidth < 500 ? 800 : 900; //plus rapide sur petit écran
 
-  function setVhUnit() {
-    const vh = window.innerHeight * 0.01;
-    document.body.style.setProperty("--vh", `${vh}px`);
-  }
+  // function setVhUnit() {
+  //   const vh = window.innerHeight * 0.01;
+  //   document.body.style.setProperty("--vh", `${vh}px`);
+  // }
 
-  window.addEventListener("resize", setVhUnit);
-  setVhUnit();
+  // window.addEventListener("resize", setVhUnit);
+  // setVhUnit();
 
   // Création des divs
   for (let i = 0; i < numOfDivs; i++) {
