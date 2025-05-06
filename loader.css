@@ -234,6 +234,7 @@ body {
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* this free little loader spinner comes from https://github.com/vineethtrv/css-loader?tab=MIT-1-ov-file#readme */
+/* I just changed colors */
 .loader {
   margin-top: 22%;
   transform: rotateZ(45deg);
@@ -241,7 +242,7 @@ body {
   border-radius: 50%;
   width: 82%;
   height: 82%;
-  color: #fff;
+  color: #518c91;
 }
 .loader:before,
 .loader:after {
@@ -257,7 +258,7 @@ body {
   animation: 1s spin linear infinite;
 }
 .loader:after {
-  color: #068d9d;
+  color: #518c91;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
